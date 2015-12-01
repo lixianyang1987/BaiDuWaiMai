@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +13,7 @@ import com.jikexunyuan.baiduwaimai.model.cellData;
 
 public class MyAdapter extends RecyclerView.Adapter {
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+public  class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
         public ImageView imgView;
 
@@ -32,8 +33,23 @@ public class MyAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+
+        parent.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+
+                itemHeight =parent.getMeasuredHeight();
+                return true;
+            }
+        });
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_recycler, null));
+    }
+
+    private int itemHeight;
+
+    public int getItemHeight() {
+        return itemHeight;
     }
 
     @Override

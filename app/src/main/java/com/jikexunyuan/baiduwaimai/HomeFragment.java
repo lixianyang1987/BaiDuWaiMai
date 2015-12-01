@@ -15,9 +15,11 @@ import android.widget.FrameLayout;
 
 
 import com.jikexunyuan.baiduwaimai.adapter.MyAdapter;
+import com.jikexunyuan.baiduwaimai.util.GridLayoutManagerTo;
 
 
 public class HomeFragment extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
@@ -37,7 +39,7 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
         // Required empty public constructor
     }
-    private RecyclerView rv;
+    private static RecyclerView rv;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,21 +48,20 @@ public class HomeFragment extends Fragment {
         f.setPadding(10, 0, 10, 10);
         f.setBackgroundColor(getResources().getColor(R.color.colorGray));
         rv = new RecyclerView(getContext());
-        GridLayoutManager gridLayoutManager =new GridLayoutManager(getContext(), 4, LinearLayoutManager.VERTICAL, false);
+        GridLayoutManager gridLayoutManager =new GridLayoutManagerTo(getContext(), 4, LinearLayoutManager.VERTICAL, false);
 
         rv.setLayoutManager(gridLayoutManager);
 
         rv.setBackgroundColor(getResources().getColor(R.color.colorWhiteSmoke));
         rv.setPadding(0, 30, 0, 0);
-        RecyclerView.LayoutParams layoutParams =new RecyclerView.LayoutParams( RecyclerView.LayoutParams.WRAP_CONTENT,350);
+        RecyclerView.LayoutParams layoutParams =new RecyclerView.LayoutParams( RecyclerView.LayoutParams.WRAP_CONTENT,RecyclerView.LayoutParams.WRAP_CONTENT);
         rv.setAdapter(new MyAdapter());
         f.addView(rv,layoutParams);
 
         return v;
-
-
     }
 
-
-
+    public static RecyclerView getRv() {
+        return rv;
+    }
 }
