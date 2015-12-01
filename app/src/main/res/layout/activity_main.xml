@@ -7,53 +7,49 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.jikexunyuan.baiduwaimai.MainActivity">
-
+    <!--android:paddingBottom="20dp"-->
+    <!--android:background="@drawable/corners"-->
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/corners"
-        android:paddingBottom="20dp"
-        >
+        android:background="@color/colorAccent"
 
+        >
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-
+            android:layout_height="0dp"
             app:layout_scrollFlags="scroll|enterAlways"
-            android:background="@color/colorAccent"
             app:popupTheme="@style/AppTheme.PopupOverlay">
-            <RelativeLayout
+        </android.support.v7.widget.Toolbar>
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@+id/rl_search_btn"
+            android:background="@drawable/corners"
+            android:layout_height="40dp">
+            <ImageView
+                android:id="@+id/iv_search_icon"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/search_black"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/et_search_content"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toLeftOf="@+id/rl_search_btn"
-                android:background="@drawable/corners"
-                android:layout_height="fill_parent">
-                <ImageView
-                    android:id="@+id/iv_search_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/search_black"
-                    android:layout_marginLeft="15dp"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/et_search_content"
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:singleLine="true"
-                    android:background="@null"
-                    android:hint="请输入书名"
-                    android:layout_toRightOf="@+id/iv_search_icon"
-                    android:layout_height="fill_parent" />
-            </RelativeLayout>
-
-
-        </android.support.v7.widget.Toolbar>
-
+                android:singleLine="true"
+                android:background="@null"
+                android:hint="搜索商户或商品名称"
+                android:layout_toRightOf="@+id/iv_search_icon"
+                android:layout_height="fill_parent" />
+        </RelativeLayout>
 
     </android.support.design.widget.AppBarLayout>
 
