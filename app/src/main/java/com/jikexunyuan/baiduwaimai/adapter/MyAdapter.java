@@ -38,8 +38,8 @@ public  class ViewHolder extends RecyclerView.ViewHolder {
         parent.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
+                itemHeight=  parent.getChildAt(0).getMeasuredHeight();
 
-                itemHeight =parent.getMeasuredHeight();
                 return true;
             }
         });

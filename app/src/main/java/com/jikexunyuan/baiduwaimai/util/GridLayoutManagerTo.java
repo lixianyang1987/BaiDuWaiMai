@@ -18,17 +18,22 @@ public class GridLayoutManagerTo extends GridLayoutManager {
 
     @Override
     public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state, final int widthSpec, final int heightSpec) {
-        adapter = new MyAdapter();
+
+        adapter = (MyAdapter) HomeFragment.getRv().getAdapter();
         View view = recycler.getViewForPosition(0);
         measureChild(view, widthSpec, heightSpec);
-        int measuredHeight = view.getMeasuredHeight();
-        int measuredWidth = View.MeasureSpec.getSize(widthSpec);
-        //出于美观的考虑RecyclerView Heigut  设置时不在添加 边距
-     //   int paddingHeight = HomeFragment.getRv().getPaddingBottom() + HomeFragment.getRv().getPaddingTop();
-        int line = adapter.getItemCount() / getSpanCount();
-        if (adapter.getItemCount() % getSpanCount() > 0) {
-            line++;
+        if (adapter != null && adapter.getItemHeight() > 0) {
+            int measuredWidth = View.MeasureSpec.getSize(widthSpec);
+            int measuredHeight = adapter.getItemHeight() +  HomeFragment.getRv().getPaddingBottom() +  HomeFragment.getRv().getPaddingTop();
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(measuredHeight);
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            int line = adapter.getItemCount() / getSpanCount();
+            if (adapter.getItemCount() % getSpanCount() > 0) line++;
+            setMeasuredDimension(measuredWidth, measuredHeight * line);
+        } else {
+            super.onMeasure(recycler, state, widthSpec, heightSpec);
         }
-        setMeasuredDimension(measuredWidth, measuredHeight * line);
+
     }
 }

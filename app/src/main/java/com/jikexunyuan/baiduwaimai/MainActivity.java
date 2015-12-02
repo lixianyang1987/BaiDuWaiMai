@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] imageResId;
     private String[] tabTitles;
     private EditText editText;
-
+    private Fragment home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 View v = tab.getCustomView();
                 ImageView img = (ImageView) v.findViewById(R.id.imageView);
                 viewPager.setCurrentItem(tab.getPosition());
+
+
                 switch (tab.getPosition()) {
                     case 0:
                         img.setImageResource(R.drawable.tab_icon_home_selected);
@@ -110,11 +112,15 @@ public class MainActivity extends AppCompatActivity {
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
+
         @Override
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new HomeFragment();
+                    if(home==null){
+                        home=new HomeFragment();
+                    }
+                    return home;
                 case 1:
                     return new DdFragment();
                 case 2:
