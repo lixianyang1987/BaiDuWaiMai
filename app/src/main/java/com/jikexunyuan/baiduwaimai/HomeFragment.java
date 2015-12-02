@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.fragment_home, container, false);
         FrameLayout f= (FrameLayout) v.findViewById(R.id.home);
-        f.setPadding(10, 0, 10, 10);
+        f.setPadding(10, 20, 10, 10);
         f.setBackgroundColor(getResources().getColor(R.color.colorGray));
         rv = new RecyclerView(getContext());
         GridLayoutManager gridLayoutManager =new GridLayoutManagerTo(getContext(), 4, LinearLayoutManager.VERTICAL, false);
