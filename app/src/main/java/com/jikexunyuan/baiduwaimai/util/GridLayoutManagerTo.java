@@ -25,9 +25,6 @@ public class GridLayoutManagerTo extends GridLayoutManager {
         if (adapter != null && adapter.getItemHeight() > 0) {
             int measuredWidth = View.MeasureSpec.getSize(widthSpec);
             int measuredHeight = adapter.getItemHeight() +  HomeFragment.getRv().getPaddingBottom() +  HomeFragment.getRv().getPaddingTop();
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            System.out.println(measuredHeight);
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             int line = adapter.getItemCount() / getSpanCount();
             if (adapter.getItemCount() % getSpanCount() > 0) line++;
             setMeasuredDimension(measuredWidth, measuredHeight * line);
