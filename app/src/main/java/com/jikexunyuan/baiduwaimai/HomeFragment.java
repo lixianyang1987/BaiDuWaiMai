@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 
 import com.jikexunyuan.baiduwaimai.adapter.ListAdapter;
 import com.jikexunyuan.baiduwaimai.adapter.MyAdapter;
+import com.jikexunyuan.baiduwaimai.util.DividerItemDecoration;
 import com.jikexunyuan.baiduwaimai.util.GridLayoutManagerTo;
 import com.jikexunyuan.baiduwaimai.util.LinearLayoutManagerTo;
 
@@ -65,6 +66,7 @@ public class HomeFragment extends Fragment {
         RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.WRAP_CONTENT, RecyclerView.LayoutParams.WRAP_CONTENT);
         rv.setAdapter(adapter);
         rvItem.setAdapter(adapterlist);
+        rvItem.addItemDecoration(new DividerItemDecoration(getContext(), 1));
         linearLayout.addView(rv, layoutParams);
         linearLayout.addView(rvItem, layoutParams);
          relativeLayout = (RelativeLayout) v.findViewById(R.id.relative);

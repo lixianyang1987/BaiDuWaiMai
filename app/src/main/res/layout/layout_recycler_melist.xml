@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relative"
+    >
+
+    <ImageView
+        android:id="@+id/img_call"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mypage_list_icon_location" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="我的送餐地址"
+        android:textSize="15dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/img_call"
+        android:layout_toEndOf="@+id/img_call" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        android:paddingTop="8dp"
+        android:src="@drawable/mypage_list_icon_arrow"
+        android:id="@+id/img_ic"
+        android:layout_alignBottom="@+id/tv_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

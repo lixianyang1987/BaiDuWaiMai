@@ -70,6 +70,7 @@ public class ListAdapter extends RecyclerView.Adapter {
         ViewHolder vh = (ViewHolder) holder;
         listData data = listDatas[position];
         setLvs(data.lv, vh);
+
         vh.getTvXl().setText("月售" + data.ctXl + "份");
         vh.getImgCt().setImageResource(data.ctImg);
         if (data.ctName.length() > 6) {
