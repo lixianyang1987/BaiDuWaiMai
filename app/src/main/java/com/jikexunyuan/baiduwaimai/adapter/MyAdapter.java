@@ -13,7 +13,7 @@ import com.jikexunyuan.baiduwaimai.model.cellData;
 
 public class MyAdapter extends RecyclerView.Adapter {
 
-public  class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
         public ImageView imgView;
 
@@ -38,7 +38,7 @@ public  class ViewHolder extends RecyclerView.ViewHolder {
         parent.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                itemHeight=  parent.getChildAt(0).getMeasuredHeight();
+                itemHeight = parent.getChildAt(0).getMeasuredHeight();
 
                 return true;
             }

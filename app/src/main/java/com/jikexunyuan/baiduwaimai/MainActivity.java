@@ -1,6 +1,8 @@
 package com.jikexunyuan.baiduwaimai;
 
 import android.graphics.drawable.Drawable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -26,12 +28,18 @@ public class MainActivity extends AppCompatActivity {
     private String[] tabTitles;
     private EditText editText;
     private Fragment home;
+    private static TabLayout tabLayout;
+    private static ViewPager container;
+    private static CoordinatorLayout coordinatorLayout;
+    private static AppBarLayout appBarLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         editText= (EditText) findViewById(R.id.editText);
+        coordinatorLayout= (CoordinatorLayout) findViewById(R.id.main_content);
+        appBarLayout= (AppBarLayout) findViewById(R.id.appbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -39,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
         tabTitles = new String[]{"首页", "订单", "我"};
         viewPager = (ViewPager) findViewById(R.id.container);
         viewPager.setAdapter(mSectionsPagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+         tabLayout = (TabLayout) findViewById(R.id.tabs);
+          container = (ViewPager) findViewById(R.id.container);
         tabLayout.setupWithViewPager(viewPager);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
@@ -48,14 +57,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         viewPager.setCurrentItem(0);
+
         tabLayout.setOnTabSelectedListener(new OnTabSelectedListener() {
             @Override
             public void onTabSelected(Tab tab) {
                 View v = tab.getCustomView();
                 ImageView img = (ImageView) v.findViewById(R.id.imageView);
                 viewPager.setCurrentItem(tab.getPosition());
-
-
                 switch (tab.getPosition()) {
                     case 0:
                         img.setImageResource(R.drawable.tab_icon_home_selected);
@@ -136,4 +144,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static TabLayout getTabLayout() {
+        return tabLayout;
+    }
+
+    public static ViewPager getContainer() {
+        return container;
+    }
+
+    public static AppBarLayout getAppBarLayout() {
+        return appBarLayout;
+    }
+
+    public static CoordinatorLayout getCoordinatorLayout() {
+        return coordinatorLayout;
+    }
 }

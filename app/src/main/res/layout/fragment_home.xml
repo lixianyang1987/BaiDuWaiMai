@@ -1,8 +1,52 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.jikexunyuan.baiduwaimai.HomeFragment" android:id="@+id/home">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jikexunyuan.baiduwaimai.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:id="@+id/relative">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/corners">
+
+                <ImageView
+                    android:id="@+id/iv_search_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/search_black" />
+
+                <EditText
+                    android:id="@+id/et_search_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/iv_search_icon"
+                    android:background="@null"
+                    android:hint="搜索商户或商品名称"
+                    android:singleLine="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
 
 </FrameLayout>

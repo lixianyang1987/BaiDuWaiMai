@@ -3,7 +3,27 @@
     android:layout_height="match_parent" tools:context="com.jikexunyuan.baiduwaimai.DdFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="dingdan" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorAccent"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:textSize="16dp"
+                android:textColor="@color/colorWhiteSmoke"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="订单"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
