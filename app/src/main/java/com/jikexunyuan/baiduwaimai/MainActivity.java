@@ -1,6 +1,6 @@
 package com.jikexunyuan.baiduwaimai;
 
-import android.graphics.drawable.Drawable;
+
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
@@ -17,6 +17,7 @@ import android.view.View;
 
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import static android.support.design.widget.TabLayout.*;
@@ -32,14 +33,20 @@ public class MainActivity extends AppCompatActivity {
     private static ViewPager container;
     private static CoordinatorLayout coordinatorLayout;
     private static AppBarLayout appBarLayout;
+    private static Toolbar toolbar;
+    private static RelativeLayout relativeLayout;
+    private static TextView ddTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        editText= (EditText) findViewById(R.id.editText);
-        coordinatorLayout= (CoordinatorLayout) findViewById(R.id.main_content);
-        appBarLayout= (AppBarLayout) findViewById(R.id.appbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        relativeLayout = (RelativeLayout) findViewById(R.id.select);
+        ddTv = (TextView) findViewById(R.id.dd);
+        editText = (EditText) findViewById(R.id.editText);
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_content);
+        appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -47,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         tabTitles = new String[]{"首页", "订单", "我"};
         viewPager = (ViewPager) findViewById(R.id.container);
         viewPager.setAdapter(mSectionsPagerAdapter);
-         tabLayout = (TabLayout) findViewById(R.id.tabs);
-          container = (ViewPager) findViewById(R.id.container);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        container = (ViewPager) findViewById(R.id.container);
         tabLayout.setupWithViewPager(viewPager);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
@@ -66,12 +73,20 @@ public class MainActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(tab.getPosition());
                 switch (tab.getPosition()) {
                     case 0:
+                        toolbar.setVisibility(VISIBLE);
+                        ddTv.setVisibility(GONE);
+                        relativeLayout.setVisibility(VISIBLE);
+
                         img.setImageResource(R.drawable.tab_icon_home_selected);
                         break;
                     case 1:
+                        toolbar.setVisibility(VISIBLE);
+                        ddTv.setVisibility(VISIBLE);
+                        relativeLayout.setVisibility(GONE);
                         img.setImageResource(R.drawable.tab_icon_dingdan_selected);
                         break;
                     case 2:
+                        toolbar.setVisibility(GONE);
                         img.setImageResource(R.drawable.tab_icon_me_selected);
                         break;
                 }
@@ -111,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         img.setImageResource(imageResId[position]);
         return v;
     }
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -125,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    if(home==null){
-                        home=new HomeFragment();
+                    if (home == null) {
+                        home = new HomeFragment();
                     }
                     return home;
                 case 1:
@@ -143,20 +159,26 @@ public class MainActivity extends AppCompatActivity {
             return 3;
         }
     }
-
+    /**
+     * 导航
+     * */
     public static TabLayout getTabLayout() {
         return tabLayout;
     }
 
-    public static ViewPager getContainer() {
-        return container;
+    /**
+     * 头部
+     * */
+    public static RelativeLayout getRelativeLayout() {
+        return relativeLayout;
     }
 
-    public static AppBarLayout getAppBarLayout() {
-        return appBarLayout;
-    }
 
     public static CoordinatorLayout getCoordinatorLayout() {
         return coordinatorLayout;
+    }
+
+    public static Toolbar getToolbar() {
+        return toolbar;
     }
 }

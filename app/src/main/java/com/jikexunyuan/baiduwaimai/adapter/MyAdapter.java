@@ -38,8 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         parent.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                itemHeight = parent.getChildAt(0).getMeasuredHeight();
-
+                itemHeight = 135;
                 return true;
             }
         });

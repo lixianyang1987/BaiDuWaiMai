@@ -16,6 +16,7 @@ import com.jikexunyuan.baiduwaimai.adapter.ListMeAdapter;
 import com.jikexunyuan.baiduwaimai.util.DividerItemDecoration;
 import com.jikexunyuan.baiduwaimai.util.LinearLayoutManagerMeTo;
 import com.jikexunyuan.baiduwaimai.util.LinearLayoutManagerTo;
+import com.jikexunyuan.baiduwaimai.util.SpacesItemDecoration;
 
 
 /**
@@ -42,7 +43,6 @@ public class MeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_me, container, false);
         FrameLayout f = (FrameLayout) v.findViewById(R.id.me);
         line = (LinearLayout) v.findViewById(R.id.me_line);
@@ -53,9 +53,9 @@ public class MeFragment extends Fragment {
         rvItem.setLayoutManager(linearLayoutManager);
         rvItem.setBackgroundColor(getResources().getColor(R.color.colorWhiteSmoke));
         rvItem.setAdapter(adaptermelist);
-
         rvItem.addItemDecoration(new DividerItemDecoration(getContext(), 1));
-
+        int spacingInPixels = 8;
+        rvItem.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
         meList.addView(rvItem);
 
         return v;

@@ -16,12 +16,15 @@ import com.jikexunyuan.baiduwaimai.adapter.MyAdapter;
  */
 public class LinearLayoutManagerTo extends LinearLayoutManager {
     private ListAdapter adapter;
+
     public LinearLayoutManagerTo(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
+
     public LinearLayoutManagerTo(Context context, int orientation, boolean reverseLayout) {
         super(context, orientation, reverseLayout);
     }
+
     public LinearLayoutManagerTo(Context context) {
         super(context);
     }
@@ -29,11 +32,12 @@ public class LinearLayoutManagerTo extends LinearLayoutManager {
     @Override
     public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state, int widthSpec, int heightSpec) {
         View view = recycler.getViewForPosition(0);
-        if(view != null){
+
+        if (view != null) {
             measureChild(view, widthSpec, heightSpec);
             int measuredWidth = View.MeasureSpec.getSize(widthSpec);
-            int measuredHeight = MainActivity.getCoordinatorLayout().getMeasuredHeight()-MainActivity.getTabLayout().getMeasuredHeight()-HomeFragment.getRv().getMeasuredHeight()-HomeFragment.getRelativeLayout().getMeasuredHeight();
-            setMeasuredDimension(measuredWidth,measuredHeight);
+            int measuredHeight = MainActivity.getCoordinatorLayout().getMeasuredHeight() - MainActivity.getTabLayout().getMeasuredHeight()-MainActivity.getToolbar().getMeasuredHeight() ;
+            setMeasuredDimension(measuredWidth, measuredHeight);
         }
 
     }

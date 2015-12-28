@@ -1,6 +1,6 @@
 package com.jikexunyuan.baiduwaimai.adapter;
 
-import android.graphics.Bitmap;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jikexunyuan.baiduwaimai.R;
-import com.jikexunyuan.baiduwaimai.model.listData;
+
 import com.jikexunyuan.baiduwaimai.model.melistData;
 
 /**
@@ -58,9 +58,16 @@ public class ListMeAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolder vh = (ViewHolder) holder;
+
         melistData data = listDatas[position];
-        vh.getImg_call().setImageResource(data.ctImg);
-        vh.getTv_content().setText(data.ctContent);
+        if(data!=null) {
+            vh.getImg_call().setImageResource(data.ctImg);
+            vh.getTv_content().setText(data.ctContent);
+        }else{
+            vh.getTv_content().setText("");
+            vh.getImg_call().setImageBitmap(null);
+            vh.getImg_ic().setImageBitmap(null);
+        }
 
         if(listDatas.length-1==position){
             vh.getImg_call().setPadding(200,0,0,0);
@@ -73,5 +80,5 @@ public class ListMeAdapter extends RecyclerView.Adapter {
         return listDatas.length;
     }
 
-    public melistData[] listDatas = new melistData[]{new melistData("我的送餐地址", R.drawable.mypage_list_icon_location), new melistData("我的代金劵", R.drawable.mypage_list_icon_daijinjuan), new melistData("我的退款", R.drawable.mypage_list_icon_refund), new melistData("我的消息", R.drawable.my_messages), new melistData("我的收藏", R.drawable.mypage_list_icon_star), new melistData("我的评论", R.drawable.mypage_list_icon_comment), new melistData("百度钱包", R.drawable.mypage_list_icon_wallet), new melistData("百度糯米", R.drawable.icon_nuomi), new melistData("客服-011-7777", R.drawable.mypage_list_icon_call)};
+    public melistData[] listDatas = new melistData[]{new melistData("我的送餐地址", R.drawable.mypage_list_icon_location), new melistData("我的代金劵", R.drawable.mypage_list_icon_daijinjuan), new melistData("我的退款", R.drawable.mypage_list_icon_refund), null, new melistData("我的消息", R.drawable.my_messages),new melistData("我的收藏", R.drawable.mypage_list_icon_star), new melistData("我的评论", R.drawable.mypage_list_icon_comment), null,new melistData("百度钱包", R.drawable.mypage_list_icon_wallet), new melistData("百度糯米", R.drawable.icon_nuomi), null,new melistData("客服-011-7777", R.drawable.mypage_list_icon_call)};
 }

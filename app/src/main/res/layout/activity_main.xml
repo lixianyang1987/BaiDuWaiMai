@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.jikexunyuan.baiduwaimai.MainActivity">
-    <!--android:paddingBottom="20dp"-->
-    <!--android:background="@drawable/corners"-->
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -17,9 +16,48 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
             app:popupTheme="@style/AppTheme.PopupOverlay">
+            <RelativeLayout
+                android:id="@+id/select"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/corners">
+
+                <ImageView
+                    android:id="@+id/iv_search_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/search_black" />
+
+                <EditText
+                    android:id="@+id/et_search_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/iv_search_icon"
+                    android:background="@null"
+                    android:hint="搜索商户或商品名称"
+                    android:singleLine="true" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/dd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical"
+                android:textSize="16dp"
+                android:textColor="@color/colorWhiteSmoke"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="订单"/>
         </android.support.v7.widget.Toolbar>
 
 

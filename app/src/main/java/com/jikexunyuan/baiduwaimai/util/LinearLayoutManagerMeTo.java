@@ -33,7 +33,7 @@ public class LinearLayoutManagerMeTo extends LinearLayoutManager {
         if(view != null){
             measureChild(view, widthSpec, heightSpec);
             int measuredWidth = View.MeasureSpec.getSize(widthSpec);
-            int measuredHeight = MainActivity.getCoordinatorLayout().getMeasuredHeight()-MainActivity.getTabLayout().getMeasuredHeight()- MeFragment.getLine().getMeasuredHeight();
+            int measuredHeight = MainActivity.getCoordinatorLayout().getMeasuredHeight()-MainActivity.getTabLayout().getMeasuredHeight()- MeFragment.getLine().getMeasuredHeight()-10;
             setMeasuredDimension(measuredWidth,measuredHeight);
         }
 
